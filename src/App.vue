@@ -6,6 +6,7 @@
   <!--<MonComposant />
   <HelloWorld />-->
   <TabsComponent />
+  <GalerieComponent />
 
   <FooterComponent />
 </template>
@@ -17,6 +18,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import TabsComponent from './components/TabsComponent.vue';
+import GalerieComponent from './components/GalerieComponent.vue';
 
 
 export default {
@@ -27,7 +29,8 @@ export default {
     //  MonComposant,
     HeaderComponent,
     FooterComponent,
-    TabsComponent
+    TabsComponent,
+    GalerieComponent
 },
   data() {
     return {
