@@ -2,19 +2,22 @@
   <!-- pour lier un attribut HTML avec une variable JS on utilise 'v-bind:' ou la version courte ':' -->
   <img v-bind:alt="msg" src="./assets/logo.png">
   <p :style="test">{{ msg }}</p>
+  <MonComposant />
   <HelloWorld />
 </template>
 
 <script>
   //pour utiliser un component il faut l'importer
 import HelloWorld from './components/HelloWorld.vue';
+import MonComposant from './components/MonComposant.vue';
 
 
 export default {
   name: 'App',
   components: {
     // pour utiliser un component il faut le déclarer
-    HelloWorld
+    HelloWorld,
+    MonComposant
 },
   data() {
     return {
