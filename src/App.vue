@@ -3,27 +3,31 @@
   <!--<img v-bind:alt="msg" src="./assets/logo.png">
   <p :style="test">{{ msg }}</p>-->
   <HeaderComponent />
-  <MonComposant />
-  <HelloWorld />
+  <!--<MonComposant />
+  <HelloWorld />-->
+  <TabsComponent />
+
   <FooterComponent />
 </template>
 
 <script>
   //pour utiliser un component il faut l'importer
-import HelloWorld from './components/HelloWorld.vue';
-import MonComposant from './components/MonComposant.vue';
+//import HelloWorld from './components/HelloWorld.vue';
+//import MonComposant from './components/MonComposant.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import TabsComponent from './components/TabsComponent.vue';
 
 
 export default {
   name: 'App',
   components: {
     // pour utiliser un component il faut le déclarer
-    HelloWorld,
-    MonComposant,
+    //  HelloWorld,
+    //  MonComposant,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TabsComponent
 },
   data() {
     return {
