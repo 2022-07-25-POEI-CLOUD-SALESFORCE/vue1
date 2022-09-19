@@ -5,6 +5,13 @@
     <h2 v-show="afficheVille">{{ ville }}</h2>
     <p v-if="afficheDate">{{ dateJour }}</p>
     <p v-show="afficheDate">{{ dateJour }}</p>
+    <p>
+      <button @click="affDate">Afficher/Masquer la date</button>
+      <button @click="afficheDate = !afficheDate">Afficher/Masquer la date</button>
+    </p>
+    <p>
+      <button @click="count++">Vous avez cliqué {{ count }} fois</button>
+    </p>
     <!-- boucle d'affichage -->
     <span v-for="i in 10" :key="i">Nombre {{ i }}<br /></span>
     <!-- avec un tableau i pour l'élément du tableau, j pour l'indice -->
@@ -15,6 +22,13 @@
     <ul>
       <li v-for="(i, j) in tableau" :key="j">{{ i }}</li>
     </ul>
+    <button v-on:click="alerte">Un bouton</button>
+    <!-- séparation bouton gauche/droit de la souris + blocage menu contextuel -->
+    <button @click.left="alerte" @click.right.prevent="alerte2">Cliquez moi</button>
+    <!-- .once pour ne gérer qu'un seul clic -->
+    <button @click.once="console">La console</button>
+    <!-- .prevent pour bloquer le comporte normal du lien -->
+    <a href="http://www.google.fr" target="_blank" @click.prevent="alerte">Lien</a>
   </div>
 </template>
 
@@ -30,7 +44,24 @@ export default {
       dateJour: new Date().toLocaleDateString(),
       afficheDate: true,
       afficheVille: true,
-      tableau: ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
+      tableau: ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
+      count: 0
+      //pour github, le répertoire node_modules n'est pas envoyé
+      // il faut faire un npm install après récupération
+    }
+  },
+  methods: {
+    alerte() {
+      alert('ok');
+    },
+    alerte2() {
+      alert('droit');
+    },
+    console() {
+      console.log('Yo !');
+    },
+    affDate() {
+      this.afficheDate = !this.afficheDate;
     }
   }
 }
