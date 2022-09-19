@@ -1,15 +1,19 @@
 <template>
   <!-- pour lier un attribut HTML avec une variable JS on utilise 'v-bind:' ou la version courte ':' -->
-  <img v-bind:alt="msg" src="./assets/logo.png">
-  <p :style="test">{{ msg }}</p>
+  <!--<img v-bind:alt="msg" src="./assets/logo.png">
+  <p :style="test">{{ msg }}</p>-->
+  <HeaderComponent />
   <MonComposant />
   <HelloWorld />
+  <FooterComponent />
 </template>
 
 <script>
   //pour utiliser un component il faut l'importer
 import HelloWorld from './components/HelloWorld.vue';
 import MonComposant from './components/MonComposant.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
 
 
 export default {
@@ -17,7 +21,9 @@ export default {
   components: {
     // pour utiliser un component il faut le déclarer
     HelloWorld,
-    MonComposant
+    MonComposant,
+    HeaderComponent,
+    FooterComponent
 },
   data() {
     return {
