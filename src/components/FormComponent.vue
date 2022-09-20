@@ -8,12 +8,12 @@
              v-model.trim : suppression des espaces avant et après le texte
              v-model.number : nombre uniquement
         -->
-        <input v-model="nom" placeholder="votre nom ici" :class='{ko: nomKo}' />
+        <input v-model="nom" placeholder="votre nom ici" :class='{ko: nomKo, ok: !nomKo}' />
         <p v-show="nomKo" class="ko">Votre nom doit comporter au moins 2 caractères...</p>
       </div>
       <div>
         <label>Prénom</label>
-        <input v-model="prenom" placeholder="votre prénom ici" :class='{ko: prenomKo}' />
+        <input v-model="prenom" placeholder="votre prénom ici" :class='{ko: prenomKo, ok: !prenomKo}' />
         <p v-show="prenomKo" class="ko">Votre prénom doit comporter au moins 2 caractères...</p>
       </div>
       <p>
@@ -103,5 +103,8 @@ p.ko {
   background-color: #FF5555;
   color: white;
   padding: 2px;
+}
+.ok {
+  border-color: lime;
 }
 </style>

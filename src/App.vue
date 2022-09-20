@@ -10,6 +10,7 @@
   <!--<TabsComponent ref='tabs' id="tabs"/>
   <GalerieComponent ref='galerie' id="galerie" />-->
     <FormComponent />
+    <ParentComponent />
   <FooterComponent />
 </template>
 
@@ -20,6 +21,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import FormComponent from './components/FormComponent.vue';
+import ParentComponent from './components/ParentComponent.vue';
 //import TabsComponent from './components/TabsComponent.vue';
 //import GalerieComponent from './components/GalerieComponent.vue';
 //import RappelsComponent from './components/RappelsComponent.vue';
@@ -33,7 +35,8 @@ export default {
     //  MonComposant,
     HeaderComponent,
     FooterComponent,
-    FormComponent
+    FormComponent,
+    ParentComponent
 },
   data() {
     return {
