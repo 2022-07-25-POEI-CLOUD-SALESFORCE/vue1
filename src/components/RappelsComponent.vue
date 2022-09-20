@@ -15,7 +15,10 @@
     <ol>
       <li v-for="(val, cle) in [1,  3, 7, 8, 2, 5]" :key="cle">{{ cle }} : {{ val }}</li>
     </ol>
-
+    <!-- mois de l'année -->
+    <ul>
+      <li v-for="m in mois" :key="m" :ref="m">{{ m }}</li>
+    </ul>
   </div>
 </template>
 
@@ -33,8 +36,14 @@
         //avant de l'afficher ou l'utiliser il faut déclarer les variables dans 'data'
         msg: 'Hello World !',
         monStyle: {textDecoration: 'underline', border: '1px solid silver'},
-        statut: false
+        statut: false,
+        mois: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 
+               'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'décembre']
       }
+    },
+    // hook de compilation
+    mounted() {
+      console.log(this.$refs.janvier);
     },
     // une partie pour mettre mes propres fonctions
     methods: {

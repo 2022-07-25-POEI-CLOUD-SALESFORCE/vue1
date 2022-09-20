@@ -1,37 +1,37 @@
 <template>
   <div class="galerie">
     <!-- une figure permet de lier une image et une légende -->
-    <figure @click="open">
-      <img src="../assets/img1.jpg" alt="img 1" />
-      <figCaption>Image 1</figCaption>
+    <figure @click="open" >
+      <img src="../assets/img1.jpg" alt="img 1" ref="img1"/>
+      <figcaption>Image 1</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img2.jpg" alt="img 2" />
-      <figCaption>Image 2</figCaption>
+      <figcaption>Image 2</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img3.jpg" alt="img 3" />
-      <figCaption>Image 3</figCaption>
+      <figcaption>Image 3</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img4.jpg" alt="img 4" />
-      <figCaption>Image 4</figCaption>
+      <figcaption>Image 4</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img5.jpg" alt="img 5" />
-      <figCaption>Image 5</figCaption>
+      <figcaption>Image 5</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img6.jpg" alt="img 6" />
-      <figCaption>Image 6</figCaption>
+      <figcaption>Image 6</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img7.jpg" alt="img 7" />
-      <figCaption>Image 7</figCaption>
+      <figcaption>Image 7</figcaption>
     </figure>
     <figure @click="open">
       <img src="../assets/img8.jpg" alt="img 8" />
-      <figCaption>Image 8</figCaption>
+      <figcaption>Image 8</figcaption>
     </figure>
     <div id="popup" v-show="show" @click="close">
       <img :src="active" />
@@ -49,6 +49,20 @@
         show: false
       }
     },
+    // mounted (page chargée et ready)
+    // utilisé pour des appels d'API, les corrections d'affichage ou masquage d'éléments, ...
+    mounted() {
+      this.show = false;
+      this.disabled = true;
+      //accès aux infos d'un élément par sa ref
+      console.log(this.$refs.img1.src);
+      console.log(this.$refs.img1.alt);
+      //console.log(this.$el); //les éléments du DOM
+    },
+    /* hook de mise à jour terminée */
+    updated() {
+      console.log('updated');
+    },
     methods: {
       open(event){
         //console.log(event.target.src);
@@ -63,7 +77,6 @@
         this.show = false;
       }
     }
-
   }
 </script>
 
