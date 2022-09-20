@@ -3,6 +3,7 @@
   <!--<img v-bind:alt="msg" src="./assets/logo.png">
   <p :style="test">{{ msg }}</p>-->
   <HeaderComponent />
+  <!--<RappelsComponent />-->
   <!--<MonComposant />
   <HelloWorld />-->
   <TabsComponent />
@@ -19,6 +20,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import TabsComponent from './components/TabsComponent.vue';
 import GalerieComponent from './components/GalerieComponent.vue';
+//import RappelsComponent from './components/RappelsComponent.vue';
 
 
 export default {
@@ -30,7 +32,8 @@ export default {
     HeaderComponent,
     FooterComponent,
     TabsComponent,
-    GalerieComponent
+    GalerieComponent,
+    //RappelsComponent
 },
   data() {
     return {
