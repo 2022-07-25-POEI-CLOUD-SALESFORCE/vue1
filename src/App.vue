@@ -11,6 +11,7 @@
   <GalerieComponent ref='galerie' id="galerie" />-->
     <FormComponent />
     <ParentComponent />
+    <TotalSlot>{{ projets.length }}</TotalSlot>
     <ProjetComponent v-for="projet in projets" :key="projet.id" :projet="projet" @fermer="fermer" />
   <FooterComponent />
 </template>
@@ -24,6 +25,7 @@ import FooterComponent from './components/FooterComponent.vue';
 import FormComponent from './components/FormComponent.vue';
 import ParentComponent from './components/ParentComponent.vue';
 import ProjetComponent from './components/ProjetComponent.vue';
+import TotalSlot from './components/TotalSlot.vue';
 //import TabsComponent from './components/TabsComponent.vue';
 //import GalerieComponent from './components/GalerieComponent.vue';
 //import RappelsComponent from './components/RappelsComponent.vue';
@@ -39,8 +41,9 @@ export default {
     FooterComponent,
     FormComponent,
     ParentComponent,
-    ProjetComponent
-  },
+    ProjetComponent,
+    TotalSlot
+},
   data() {
     return {
       msg: 'Hello M2I',
@@ -49,8 +52,9 @@ export default {
         {id: 1, nom: 'projet 1', etat: 'ouvert'},
         {id: 2, nom: 'projet 2', etat: 'ferme'},
         {id: 3, nom: 'projet 3', etat: 'ouvert'},
-        {id: 4, nom: 'projet 4', etat: 'ouvert'}
-    ]
+        {id: 4, nom: 'projet 4', etat: 'ouvert'},
+        {id: 5, nom: 'projet 5', etat: 'ferme'},
+      ]
     }
   },
   methods: {
