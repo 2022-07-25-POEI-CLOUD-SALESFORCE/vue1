@@ -11,6 +11,7 @@
   <GalerieComponent ref='galerie' id="galerie" />-->
     <FormComponent />
     <ParentComponent />
+    <ProjetComponent v-for="projet in projets" :key="projet.id" :projet="projet" @fermer="fermer" />
   <FooterComponent />
 </template>
 
@@ -22,6 +23,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import FormComponent from './components/FormComponent.vue';
 import ParentComponent from './components/ParentComponent.vue';
+import ProjetComponent from './components/ProjetComponent.vue';
 //import TabsComponent from './components/TabsComponent.vue';
 //import GalerieComponent from './components/GalerieComponent.vue';
 //import RappelsComponent from './components/RappelsComponent.vue';
@@ -36,12 +38,30 @@ export default {
     HeaderComponent,
     FooterComponent,
     FormComponent,
-    ParentComponent
-},
+    ParentComponent,
+    ProjetComponent
+  },
   data() {
     return {
       msg: 'Hello M2I',
-      test: {color: 'red'}
+      test: {color: 'red'},
+      projets: [
+        {id: 1, nom: 'projet 1', etat: 'ouvert'},
+        {id: 2, nom: 'projet 2', etat: 'ferme'},
+        {id: 3, nom: 'projet 3', etat: 'ouvert'},
+        {id: 4, nom: 'projet 4', etat: 'ouvert'}
+    ]
+    }
+  },
+  methods: {
+    //traitement du bouton 'enfant'
+    fermer(event) {
+      console.log(event);
+      // boucle sur le tableau de projets
+      this.projets.forEach(function(elem) {
+        //si id correspondant au bouton cliqué on change le statut
+        if(elem.id == event) elem.etat = 'ferme';
+      });
     }
   },
   /* hooks de création */
