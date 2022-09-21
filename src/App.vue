@@ -13,6 +13,7 @@
     <ParentComponent />
     <TotalSlot>{{ projets.length }}</TotalSlot>
     <ProjetComponent v-for="projet in projets" :key="projet.id" :projet="projet" @fermer="fermer" />
+    <TotalSlot> {{ projetsOuverts }}</TotalSlot>
   <FooterComponent />
 </template>
 
@@ -42,7 +43,7 @@ export default {
     FormComponent,
     ParentComponent,
     ProjetComponent,
-    TotalSlot
+    TotalSlot,
 },
   data() {
     return {
@@ -66,6 +67,24 @@ export default {
         //si id correspondant au bouton cliqué on change le statut
         if(elem.id == event) elem.etat = 'ferme';
       });
+    }
+  },
+  computed: {
+    //calculer le nombre de projets "ouverts"
+    projetsOuverts() {
+      //méthode 1: comptage
+      let nombre = 0;
+      //boucle sur les projets
+      this.projets.forEach(function(projet) {
+        //si etat du projet ouvert on incrémente le nombre
+        if(projet.etat == 'ouvert') nombre++;
+      });
+      // seconde méthode avec un filtre
+      // let pjrOuverts = this.projets.filter(prj => prj.etat =='ouvert');
+      // console.log(pjrOuverts);
+      // return prjOuverts.length;
+      return nombre;
+//      return true;
     }
   },
   /* hooks de création */
